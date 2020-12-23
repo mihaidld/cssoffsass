@@ -40,16 +40,21 @@ Nous allons profiter de la simplicité des "partials". Notre code css va être d
 │   └── style.scss
 ```
 
-Les fichiers "patials" qui sont uniquement destinés à être importés, et non compilés seuls, commencent par "\_". Ceci indique aux outils Sass de ne pas essayer de compiler ces fichiers par eux-mêmes.
+Les fichiers "patials"  commencent par "\_" (*underscore*, tiret bas). Ceci indique aux outils Sass de ne pas essayer de compiler ces fichiers par eux-mêmes.
 
-Vous pouvez laisser le "\_" lorsque vous importez un partiel.
+Vous pouvez ommettre le "\_" lorsque vous importez un partiel :
 
 ```css
-// ex.
 @import "normalize";
 ```
 
-**TO DO 👉** Inclure les fichier partials dans `style.scss` en respectons l'ordre comme ceci
+et la façon plus concise de dire :
+
+```css
+@import "_normalize.scss";
+```
+
+**TO DO 👉** Inclure les fichier partials dans `style.scss` en respectant l'ordre comme ceci
 
 - normalize
 - settings
@@ -66,9 +71,9 @@ Vous pouvez laisser le "\_" lorsque vous importez un partiel.
 
 ## Output CSS
 
-Sass compiler (l'extension Live Sass Compiler dans notre cas) crée ou met à jours des fichiers css à chaque fois où nous enregistrons une modification dans des fichiers .scss
+Le compilateur Sass (l'extension Live Sass Compiler dans notre cas) crée ou met à jours des fichiers css à chaque fois où nous enregistrons une modification dans un des fichiers `.scss`
 
-L'arborescence dépend de not réglages (fichier .vscode/settings.json).
+L'arborescence où seront placés les fichiers générés dépend de not réglages (fichier `.vscode/settings.json`).
 
 ```bash
 ├── css
@@ -80,7 +85,7 @@ L'arborescence dépend de not réglages (fichier .vscode/settings.json).
 │       └── style.min.css.map
 ```
 
-Les fichiers .map permettent aux DevTools de navigateur (ceux que nous activons via "Inspecter Elément") de faire le lien entre le code étant exécuté et les fichiers sources originaux.
+Les fichiers `.map` permettent aux DevTools de navigateur de faire le lien entre le code étant exécuté et les fichiers sources originaux.
 
 Nous ne les incluons pas, mais il ne faut pas les supprimer pour autant. Le navigateur va les chercher et trouver lui même grâce à la dernière ligne dans les fichier .css générés
 
@@ -88,14 +93,12 @@ Nous ne les incluons pas, mais il ne faut pas les supprimer pour autant. Le navi
 /*# sourceMappingURL=style.min.css.map */
 ```
 
-Exemple
-
 ```html
 <!-- html -->
 <link rel="stylesheet" href="dist/css/style.min.css" />
 ```
 
-**Attention** Est-ce déjà clair que nous ne modifions pas de fichiers .css manuellement ? Si nous utilisons sass dans le projet, c'est sass qui se charge de la génération des fichiers .css. Nous n'y touchons plus.
+**Attention** Est-ce déjà clair que nous ne modifions pas de fichiers `.css` manuellement ? Si nous utilisons Sass dans le projet, c'est Sass qui se charge de la génération des fichiers `.css.` **Nous n'y touchons plus. ⛔️**
 
 **TO DO 👉** Lier le fichier `.css` compilé dans le fichier `index.html`
 
@@ -161,7 +164,7 @@ h1 {
 
 ## Header
 
-**Nous allons apprendre** comment nous faciliter la vie avec des fonctions se sass.
+**Nous allons apprendre** comment nous faciliter la vie avec des fonctions de sass.
 
 Sass vient avec un nombre de fonctions déjà prédéfinies, y compris quelques fonctions qui permettent de modifier des couleurs.
 
@@ -270,9 +273,9 @@ qui est compilé vers :
 
 ## Mixins
 
-**Nous allons apprendre** comment nous faciliter la vie en réutilisans css via @mixins.
+**Nous allons apprendre** comment nous faciliter la vie en réutilisans css via `@mixins`.
 
-On peur imaginer mixins comme des snippets de css qu'on peut utiliser dans plusieurs endroits.
+On peur imaginer que *mixin* est un snippet de css qu'on peut utiliser dans plusieurs endroits pour ne pas se répéter.
 
 La syntaxe est comme ceci :
 
@@ -332,4 +335,4 @@ section .promo {
 }
 ```
 
-**TO DO 👉** Essayer vous-mêmes cette façon de mettre en place media queries.
+**TO DO 👉** Essayer vous-mêmes de mettre en place media queries de cette façon.
